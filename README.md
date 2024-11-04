@@ -6,11 +6,11 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
+or
 yarn dev
-# or
+or
 pnpm dev
-# or
+or
 bun dev
 ```
 
@@ -48,11 +48,11 @@ Since the release of Next.js 12, Next.js now has built-in configuration for Jest
 To set up Jest, install jest and the following packages as dev dependencies:
 
 npm install -D jest jest-environment-jsdom @testing-library/react @testing-library/dom @testing-library/jest-dom ts-node
-# or
+or
 ```
 yarn add -D jest jest-environment-jsdom @testing-library/react @testing-library/dom @testing-library/jest-dom ts-node
 ```
-# or
+or
 ```
 pnpm install -D jest jest-environment-jsdom @testing-library/react @testing-library/dom @testing-library/jest-dom ts-node
 ```
@@ -61,11 +61,11 @@ pnpm install -D jest jest-environment-jsdom @testing-library/react @testing-libr
 ```
 npm init jest@latest
 ```
-# or
+or
 ```
 yarn create jest@latest
 ```
-# or
+or
 ```
 pnpm create jest@latest
 ```
@@ -165,11 +165,11 @@ Then, run the following command to run your tests:
 ```
 npm run test
 ```
-# or
+or
 ```
 yarn test
 ```
-# or
+or
 ```
 pnpm test
 ```
