@@ -38,7 +38,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ============================================================
 
 ## Setting up Jest with Next.js
+```
 npx create-next-app@latest --example with-jest with-jest-app
+```
 
 ## Manual setup
 Since the release of Next.js 12, Next.js now has built-in configuration for Jest.
@@ -47,22 +49,33 @@ To set up Jest, install jest and the following packages as dev dependencies:
 
 npm install -D jest jest-environment-jsdom @testing-library/react @testing-library/dom @testing-library/jest-dom ts-node
 # or
+```
 yarn add -D jest jest-environment-jsdom @testing-library/react @testing-library/dom @testing-library/jest-dom ts-node
+```
 # or
+```
 pnpm install -D jest jest-environment-jsdom @testing-library/react @testing-library/dom @testing-library/jest-dom ts-node
+```
 
 # Generate a basic Jest configuration file by running the following command:
+```
 npm init jest@latest
+```
 # or
+```
 yarn create jest@latest
+```
 # or
+```
 pnpm create jest@latest
+```
 
 # This will take you through a series of prompts to setup Jest for your project, including automatically creating a jest.config.ts|js file.
 
 # Update your config file to use next/jest. This transformer has all the necessary configuration options for Jest to work with Next.js:
 
 -- jest.config.ts
+```
 import type { Config } from 'jest'
 import nextJest from 'next/jest.js'
  
@@ -72,6 +85,7 @@ const createJestConfig = nextJest({
 })
  
 // Add any custom config to be passed to Jest
+```
 const config: Config = {
   coverageProvider: 'v8',
   testEnvironment: 'jsdom',
@@ -81,14 +95,18 @@ const config: Config = {
  
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
 export default createJestConfig(config)
+```
 
 -- jest.setup.ts
+```
 import '@testing-library/jest-dom'
+```
 
 ## Add a test script to package.json:
 Finally, add a Jest test script to your package.json file:
 
 --package.json
+```
 {
   "scripts": {
     "dev": "next dev",
@@ -98,17 +116,22 @@ Finally, add a Jest test script to your package.json file:
     "test:watch": "jest --watch"
   }
 }
+```
 
 ## Creating your first test:
 Your project is now ready to run tests. Create a folder called __tests__ in your project's root directory.
 
 For example, we can add a test to check if the <Home /> component successfully renders a heading:
 
+```
 export default function Home() {
   return <h1>Home</h1>
 }
+```
 
 -- __tests__/index.test.js
+
+```
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import Home from '../pages/index'
@@ -122,10 +145,12 @@ describe('Home', () => {
     expect(heading).toBeInTheDocument()
   })
 })
+```
 
 Optionally, add a snapshot test to keep track of any unexpected changes in your component:
 
 --__tests__/snapshot.js
+```
 import { render } from '@testing-library/react'
 import Home from '../pages/index'
  
@@ -133,12 +158,19 @@ it('renders homepage unchanged', () => {
   const { container } = render(<Home />)
   expect(container).toMatchSnapshot()
 })
+```
 
 ## Running your tests
 Then, run the following command to run your tests:
 
+```
 npm run test
+```
 # or
+```
 yarn test
+```
 # or
+```
 pnpm test
+```
